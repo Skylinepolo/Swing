@@ -13,6 +13,7 @@ import static utils.Constants.*;
 
 public class Board extends JPanel implements ActionListener, KeyListener {
 
+    private final Missile missile;
     private final Player player;
     private final List<Sprite> sprites;
     private final Set<Integer> activeKeyCodes;
@@ -22,7 +23,8 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         setBackground(Color.CYAN);
 
         player = new Player();
-        sprites = new ArrayList<>(List.of(player));
+        missile = new Missile();
+        sprites = new ArrayList<>(List.of(player, missile));
 
         activeKeyCodes = new HashSet<>();
 
@@ -39,6 +41,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
         repaint();
     }
+
 
     @Override
     public void paint(Graphics graphics) {
